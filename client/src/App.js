@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import Title from './components/Title/Title.jsx';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
     </div>
