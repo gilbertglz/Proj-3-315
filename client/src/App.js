@@ -1,11 +1,32 @@
 import React from 'react';
-import './App.scss';
-import Title from './components/Title/Title.jsx';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from './components/pages/Home/Home';
+import Results from './components/pages/Results/Results';
+import Explore from './components/pages/Explore/Explore';
+import Navigation  from './components/navigation/Navigation';
+import styles from './App.module.scss';
 
 const App = () => {
+
   return (
-      <div className="App">
-      </div>
+    <div className={styles.App} id="outer-container">
+      <Router>
+        <Navigation className={styles.nav} pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
+        <div id="page-wrap">
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route path="/results">
+              <Results/>
+            </Route>
+            <Route path="/explore">
+              <Explore/>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </div>
   );
 }
 

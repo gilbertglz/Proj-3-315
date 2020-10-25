@@ -1,8 +1,10 @@
+import React from 'react';
+import Title from '../../Title/Title';
+import styles from './Home.module.scss';
+import ISSMap from '../../ISSMap/ISSMap';
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
-
 import CurrentLocation from './Map';
-import './App.css'
 
 export class MapContainer extends Component {
   state = {
@@ -57,3 +59,4 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyCQ7PRYOQnJPpSRA3_aB_gP_E-0bEoFlE8'
 })(MapContainer);
+
