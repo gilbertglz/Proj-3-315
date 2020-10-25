@@ -4,7 +4,7 @@ import withPassTimesLoading from './withPassTimesLoading';
 
 const OpenNotify = () => {
     // TODO: Take in latitude/longitute input
-    
+
     const PassTimesLoading = withPassTimesLoading(PassTimes);
     const [appState, setAppstate] = useState ({
         loading: false,

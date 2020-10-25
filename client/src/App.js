@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-//import Title from './components/Title/Title.jsx';
+import Title from './components/Title/Title.jsx';
 import OpenNotify from './components/OpenNotify_API/OpenNotify.jsx';
 
 const App = () => {
