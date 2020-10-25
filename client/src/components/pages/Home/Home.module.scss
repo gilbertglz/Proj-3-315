@@ -1,5 +1,8 @@
 @import '../../../../theme';
 
-.example {
-    color: $color-primary;
+.homePage {
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
 }
