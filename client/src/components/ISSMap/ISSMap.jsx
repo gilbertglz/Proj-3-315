@@ -19,6 +19,8 @@ const mapContainerStyle = {
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 10px rgba(0,0,0,0.1)"
 };
 
 const locations = [{lat: 30.618525, lng: -96.336520}, {lat: 30.284878, lng: -97.734073}];
@@ -57,8 +59,9 @@ const ISSMap = (props) => {
                 });
             }}
             >
-                {props.markers.map((location) => {
+                {props.markers.map((location, key) => {
                     return (<Marker 
+                    key={key}
                     position={location}
                     icon={process.env.PUBLIC_URL + "/satellite.svg"}
                     />);

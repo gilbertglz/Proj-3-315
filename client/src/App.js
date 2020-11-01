@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/pages/Home/Home';
@@ -8,7 +8,18 @@ import Navigation  from './components/navigation/Navigation';
 import styles from './App.module.scss';
 
 const App = () => {
-
+  const [mapInfo, setMapInfo] = useState({
+    location: {
+      lat: 30.6188,
+      lng: -96.3365
+    }
+  });
+  const locationChanged = (location) => {
+    console.log(location);
+    setMapInfo({
+      location: location
+    });
+  }
   return (
     <div className={styles.App} id="outer-container">
       <Router>
@@ -16,10 +27,10 @@ const App = () => {
         <div id="page-wrap">
           <Switch>
             <Route exact path="/">
-              <Home/>
+              <Home onLocationSelect={locationChanged}/>
             </Route>
             <Route path="/results">
-              <Results/>
+              <Results location={mapInfo.location}/>
             </Route>
             <Route path="/explore">
               <Explore/>

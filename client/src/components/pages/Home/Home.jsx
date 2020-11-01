@@ -13,13 +13,14 @@ export class MapContainer extends Component {
   };
   
 
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClick = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
-
+    this.props.onLocationSelect(this.state.selectedPlace);
+  }
   onClose = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
