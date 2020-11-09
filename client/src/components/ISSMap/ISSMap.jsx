@@ -19,10 +19,9 @@ const mapContainerStyle = {
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 10px rgba(0,0,0,0.1)"
 };
-
-const locations = [{lat: 30.618525, lng: -96.336520}, {lat: 30.284878, lng: -97.734073}];
-const center = {lat: 30.284878, lng: -97.734073};
 
 const options = {
     styles: MapStyles,
@@ -30,16 +29,12 @@ const options = {
     zoomControl: true,
 }
 
-const ISSMap = (props) => {
+const ISSMap = ({markers, center, onClick, markerType, allowMarkerMovement}) => {
+
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries
     });
-    const [marker, setMarker] = useState({
-        lat: 31.433250,
-        lng: -100.474640
-    });
-
     if(loadError) return "Error loading maps";
     if(!isLoaded) return "Loading...";
     return (
@@ -48,19 +43,15 @@ const ISSMap = (props) => {
             <GoogleMap
             mapContainerStyle={mapContainerStyle}
             zoom={13}
-            center={props.center ? props.center : props.markers[0]}
+            center={center ? center : markers[0]}
             options={options}
-            onClick={(event) => {
-                setMarker({
-                    lat: event.latLng.lat(),
-                    lng: event.latLng.lng()
-                });
-            }}
+            onClick={allowMarkerMovement ? onClick : (event) => {}}
             >
-                {props.markers.map((location) => {
+                {markers.map((location, key) => {
                     return (<Marker 
+                    key={key}
                     position={location}
-                    icon={process.env.PUBLIC_URL + "/satellite.svg"}
+                    icon={markerType ? process.env.PUBLIC_URL + `/${markerType}` : ""}
                     />);
                 }
                 )}

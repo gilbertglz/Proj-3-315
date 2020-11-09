@@ -1,1 +1,16 @@
 @import '../../../../theme';
+
+.page {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    align-items: center;
+    justify-self: center;
+}

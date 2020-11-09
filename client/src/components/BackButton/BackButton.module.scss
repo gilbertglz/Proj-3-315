@@ -1,0 +1,24 @@
+@import '../../../theme';
+
+.iconButton {
+    // background-color: $color-secondary;
+    border: none;
+    color: $color-on-secondary;
+    padding: 1em 2em;
+    margin: 0 1em;
+    text-decoration: none;
+    display: inline-block;
+    // font-size: 1em;
+    font-family: $font;
+    cursor: pointer;
+    border-radius: 7px;
+    max-height: 3em;
+}
+
+.iconButton:hover {
+    background-color: aliceblue;
+}
+
+.icon {
+    color: $color-secondary;
+}
