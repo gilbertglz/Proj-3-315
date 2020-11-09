@@ -11,7 +11,12 @@ const Results = (props) => {
                 <BackButton route={'/'}></BackButton>
                 <Title>Results</Title>
             </div>
-            <ISSMap center={props.location} markers={[props.location]}/>
+            <ISSMap 
+                center={props.location}
+                markers={[props.location]}
+                markerType={"satellite.svg"}
+                allowMarkerMovement={false}
+            />
         </div>
     );
 }

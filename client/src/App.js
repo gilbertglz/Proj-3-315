@@ -27,7 +27,7 @@ const App = () => {
         <div id="page-wrap">
           <Switch>
             <Route exact path="/">
-              <Home onLocationSelect={locationChanged}/>
+              <Home onLocationSelect={locationChanged} location={mapInfo.location}/>
             </Route>
             <Route path="/results">
               <Results location={mapInfo.location}/>

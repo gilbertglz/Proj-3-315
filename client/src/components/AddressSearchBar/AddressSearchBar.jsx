@@ -1,26 +1,27 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import styles from "./AddressSearchBar.module.scss";
+import Autocomplete from 'react-google-autocomplete';
 
-const AddressSearchBar = (props) => {
-    const addressRef = useRef()
+const AddressSearchBar = () => {
+    // const addressRef = useRef()
 
-    function passAddress(e){
-        const address = addressRef.current.value
-        addressRef.current.value = null
-        if(address === '') return
-        console.log(address) // test if textbox works
-        //use the passed in address here
-    }
+    // function passAddress(e){
+    //     const address = addressRef.current.value
+    //     addressRef.current.value = null
+    //     if(address === '') return
+    //     console.log(address) // test if textbox works
+    //     //use the passed in address here
+    // }
     
     
     return (
-        <>
-        <h1 className={styles.addressSearchBar}>
-            {props.children}
-        </h1>
-        <input ref={addressRef} type = "text"/>
-        <button onClick={passAddress}> Go </button>
-        </>
+        <div>
+            <Autocomplete
+            apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+            onPlaceSelected={(place) => {console.log(place);}}
+            types={['address']}
+            />
+        </div>
     );
 }
 
