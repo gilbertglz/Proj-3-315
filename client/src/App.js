@@ -7,8 +7,6 @@ import Explore from './components/pages/Explore/Explore';
 import Navigation  from './components/navigation/Navigation';
 import styles from './App.module.scss';
 
-import './App.scss';
-
 const App = () => {
 
   return (
